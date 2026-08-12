@@ -113,26 +113,26 @@ details.ev-row summary.ev-k{cursor:pointer}
   <h2>Three ways to read the cost</h2>
   <div class="summary-grid">
     <div class="sum-card"><div class="sum-label">Actual cost (partner price)</div>
-      <div class="sum-val" style="color:var(--actual)">$3,528</div>
-      <div class="sum-sub">build + integration · our cost</div></div>
+      <div class="sum-val" style="color:var(--actual)">$2,728</div>
+      <div class="sum-sub">build · no third-party integrations</div></div>
     <div class="sum-card bill"><div class="sum-label">Billable (5× · client price)</div>
-      <div class="sum-val">$17,640</div>
-      <div class="sum-sub">5× on coding · planning flat · incl. integration</div></div>
+      <div class="sum-val">$13,640</div>
+      <div class="sum-sub">5× on coding · planning flat</div></div>
     <div class="sum-card"><div class="sum-label">Traditional dev shop</div>
-      <div class="sum-val" style="color:var(--trad)">$35,842</div>
-      <div class="sum-sub">266 human hours @ $135/hr</div></div>
+      <div class="sum-val" style="color:var(--trad)">$25,042</div>
+      <div class="sum-sub">185 human hours @ $135/hr</div></div>
   </div>
   <div class="note"><p><strong>Tunable plan:</strong> man-hours/day = commits × 1.6 × tier-weight, capped 1–38h (avg 18.6h) · human team ≤5h/day (flat, rates below) · billable = 5× actual on coding only · traditional = 5× our man-hours @ $135/hr.</p></div>
   <h3 style="margin-top:26px">Labour cost by category</h3>
   <p>Core AI programming is separated from the human project team so each line is costed on its own basis — coding at tiered model rates, the team (senior + junior programmer, database expert, design expert, QA) flat at human rates.</p>
   
   <table class="grid-table lb-table"><thead><tr><th>Labour category</th><th class="r">Hours</th><th class="r">Actual</th><th class="r">Billable</th><th class="r">Traditional</th></tr></thead>
-  <tbody><tr><td><strong>Core AI programming</strong><br><span class="lb-sub">2 coding days · tiered model rates</span></td><td class="r">37h</td><td class="r actual">$2,728</td><td class="r bill">$13,640</td><td class="r trad">$25,042</td></tr><tr><td><strong>Human project team</strong><br><span class="lb-sub">0 non-coding days · 10 roles, flat</span></td><td class="r">0h</td><td class="r actual">$0</td><td class="r bill">$0</td><td class="r trad">$0</td></tr><tr><td><strong>Third-party integration</strong><br><span class="lb-sub">1 providers · API/SDK wiring</span></td><td class="r">16h</td><td class="r actual">$800</td><td class="r bill">$4,000</td><td class="r trad">$10,800</td></tr></tbody>
+  <tbody><tr><td><strong>Core AI programming</strong><br><span class="lb-sub">2 coding days · tiered model rates</span></td><td class="r">37h</td><td class="r actual">$2,728</td><td class="r bill">$13,640</td><td class="r trad">$25,042</td></tr><tr><td><strong>Human project team</strong><br><span class="lb-sub">0 non-coding days · 10 roles, flat</span></td><td class="r">0h</td><td class="r actual">$0</td><td class="r bill">$0</td><td class="r trad">$0</td></tr></tbody>
   <tfoot><tr><td><strong>Total labour</strong></td>
-  <td class="r"><strong>53h</strong></td>
-  <td class="r actual"><strong>$3,528</strong></td>
-  <td class="r bill"><strong>$17,640</strong></td>
-  <td class="r trad"><strong>$35,842</strong></td></tr></tfoot></table>
+  <td class="r"><strong>37h</strong></td>
+  <td class="r actual"><strong>$2,728</strong></td>
+  <td class="r bill"><strong>$13,640</strong></td>
+  <td class="r trad"><strong>$25,042</strong></td></tr></tfoot></table>
 </section>
 
 <hr class="div"/>
@@ -162,21 +162,6 @@ details.ev-row summary.ev-k{cursor:pointer}
   <h2>Planning &amp; specification artifacts</h2>
   <p>The build is backed by 4 committed specification documents (3,349 words total). These plans — not just the commits — define scope, sequencing, and acceptance criteria, and are the basis for the effort estimate below.</p>
   <table class="toc"><thead><tr><th>Document</th><th class="r">Depth</th></tr></thead><tbody><tr><td>README.md</td><td class="r">1,374 words</td></tr><tr><td>docs/source-material-system.md</td><td class="r">1,223 words</td></tr><tr><td>docs/droid-pipeline-runbook.md</td><td class="r">594 words</td></tr><tr><td>AGENTS.md</td><td class="r">158 words</td></tr></tbody></table>
-</section>
-
-<hr class="div"/>
-<section>
-  <div class="section-label">Integrations</div>
-  <h2>Third-party API &amp; SDK integration</h2>
-  <p>Each named provider below is a real API/SDK integrated into the platform. Integration effort is derived from provider-tagged commits (auth, webhooks, checkout, tokens, error handling and provider testing), floored per provider, and priced at the Premium rate.</p>
-  <table class="day-table"><thead><tr><th>Provider</th><th class="r">Commits</th><th class="r">Integ. hrs</th><th class="r">Actual</th><th class="r">Billable 5×</th><th class="r">Traditional</th></tr></thead>
-  <tbody><tr><td>Telnyx</td><td class="r">1</td><td class="r">16h</td><td class="r actual">$800</td><td class="r bill">$4,000</td><td class="r trad">$10,800</td></tr></tbody>
-  <tfoot><tr><td><strong>Integration subtotal</strong></td><td class="r"><strong>1</strong></td>
-  <td class="r"><strong>16h</strong></td>
-  <td class="r actual"><strong>$800</strong></td>
-  <td class="r bill"><strong>$4,000</strong></td>
-  <td class="r trad"><strong>$10,800</strong></td></tr></tfoot></table>
-  <p class="supplier-note">Edition: <strong>Transparent</strong>. Integration totals are additive to the build ledger above (API/SDK wiring layered on feature commits).</p>
 </section>
 
 <hr class="div"/>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Canada Lighting Supplies — Spec Coverage &amp; Catalog Operations — Statement of Work</title>
+<style>
+:root{--primary:#1e3a5f;--primary-light:#e7edf3;--ink:#111827;--body:#4b5563;
+--muted:#9ca3af;--hairline:#e5e7eb;--inset:#f8f9fb;--gold:#b8862f;--gold-bg:#fbf3e3;
+--trad:#b45309;--bill:var(--primary);--actual:#6b7280;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--ink);background:#eef0f3;line-height:1.6;font-size:14px}
+.page{max-width:1040px;margin:0 auto;background:#fff}
+.cover{background:linear-gradient(135deg,#0a1a2e 0%,#122844 45%,var(--primary) 100%);color:#fff;padding:64px 56px 56px;position:relative;overflow:hidden}
+.cover::after{content:'';position:absolute;top:-90px;right:-90px;width:320px;height:320px;border:1px solid rgba(184,134,47,.25);border-radius:50%}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.cover h1{font-size:38px;font-weight:800;line-height:1.18;margin-bottom:12px;letter-spacing:-.02em}
+.cover-sub{font-size:16px;color:rgba(255,255,255,.72);max-width:620px;margin-bottom:36px}
+.cover-meta{display:flex;gap:28px;flex-wrap:wrap}
+.cover-meta-item{font-size:12px;color:rgba(255,255,255,.55)}
+.cover-meta-item strong{display:block;color:#fff;font-size:16px;font-weight:700}
+.content{padding:48px 56px}
+section{margin-bottom:44px}
+.section-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--primary);margin-bottom:8px}
+h2{font-size:23px;font-weight:700;letter-spacing:-.02em;color:var(--ink);margin-bottom:12px}
+h3{font-size:15px;font-weight:700;color:var(--ink);margin:20px 0 6px}
+p{color:var(--body);margin-bottom:12px;line-height:1.7}
+.lead{font-size:16px}
+.callout{background:var(--primary-light);border-left:3px solid var(--primary);border-radius:0 10px 10px 0;padding:14px 20px;margin:20px 0}
+.callout p{color:var(--ink);margin:0;font-weight:500}
+.note{background:var(--gold-bg);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:14px 20px;margin:20px 0}
+.note p{color:#5c4419;margin:0;font-size:13px}
+hr.div{border:none;border-top:1px solid var(--hairline);margin:36px 0}
+.tier-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:20px 0}
+.tier-card{border-radius:14px;padding:22px;color:#fff}
+.tier-card.sp{background:linear-gradient(135deg,#0a1a2e,var(--primary))}
+.tier-card.pr{background:linear-gradient(135deg,var(--primary),#2d5580)}
+.tier-card.st{background:var(--inset);border:1px solid var(--hairline);color:var(--ink)}
+.tier-name{font-size:16px;font-weight:800;margin-bottom:2px}
+.tier-tag{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-bottom:12px}
+.tier-model{font-size:12px;font-weight:600;margin-bottom:10px}
+.tier-rates{display:flex;gap:16px;margin-bottom:10px}
+.tier-rate .rl{font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.6}
+.tier-rate .rv{font-size:18px;font-weight:800}
+.tier-use{font-size:11.5px;opacity:.8;line-height:1.5}
+.st .tier-tag,.st .tier-rate .rl,.st .tier-use{color:var(--muted)}
+.grid-table,.toc{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px}
+.grid-table th,.toc th{background:var(--inset);padding:9px 12px;text-align:left;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--hairline)}
+.grid-table td,.toc td{padding:11px 12px;border-bottom:1px solid var(--hairline);color:var(--body);vertical-align:top}
+.grid-table td:first-child,.toc td:first-child{font-weight:600;color:var(--ink)}
+.toc td:last-child{text-align:right;color:var(--muted);white-space:nowrap}
+.tb{display:inline-block;border-radius:20px;padding:2px 9px;font-size:10px;font-weight:700;border:1px solid;white-space:nowrap}
+.tb.sp{background:#0a1a2e;color:#fff;border-color:#0a1a2e}
+.tb.pr{background:var(--primary-light);color:var(--primary);border-color:#c3d2e2}
+.tb.st{background:#f0fdf4;color:#166534;border-color:#bbf7d0}
+.tb.plan{background:var(--gold-bg);color:#5c4419;border-color:#e6cfa0}
+.model-chip{display:inline-block;font-size:10.5px;color:var(--primary);background:var(--inset);border:1px solid var(--hairline);border-radius:6px;padding:1px 6px;margin-top:4px}
+.day-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:12.5px}
+.day-table thead th{background:var(--inset);padding:9px 10px;text-align:left;font-size:9.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--hairline)}
+.day-table thead th.r{text-align:right}
+.day-table tbody tr{border-bottom:1px solid var(--hairline);vertical-align:top}
+.day-table tbody tr.plan-row{background:var(--gold-bg)}
+.day-table td{padding:10px;color:var(--body)}
+.day-table td:first-child{font-weight:600;color:var(--ink);white-space:nowrap}
+.day-table ul{margin:0 0 0 15px}
+.day-table li{font-size:11.5px;margin-bottom:2px;line-height:1.45}
+.day-table li code{background:#fff;border:1px solid var(--hairline);border-radius:4px;padding:0 4px;font-size:10.5px;color:var(--primary)}
+.day-table .r{text-align:right;white-space:nowrap}
+.day-table .actual{color:var(--actual);font-weight:600}
+.day-table .bill{color:var(--bill);font-weight:800}
+.day-table .trad{color:var(--trad);font-weight:600}
+.day-table tfoot td{padding:11px 10px;font-weight:700;background:var(--inset)}
+.phase-h{display:flex;justify-content:space-between;align-items:baseline;margin-top:32px;border-top:2px solid var(--primary);padding-top:12px}
+.phase-h h3{margin:0;font-size:17px}
+.phase-h .pmeta{font-size:12px;color:var(--muted)}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:20px 0}
+.sum-card{border-radius:14px;padding:22px;text-align:center;border:1px solid var(--hairline)}
+.sum-card.bill{background:linear-gradient(135deg,#0a1a2e,var(--primary));color:#fff;border:none}
+.sum-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.sum-card.bill .sum-label{color:rgba(255,255,255,.6)}
+.sum-val{font-size:30px;font-weight:900;letter-spacing:-.02em}
+.sum-sub{font-size:11px;color:var(--muted);margin-top:4px}
+.sum-card.bill .sum-sub{color:rgba(255,255,255,.6)}
+.footer{background:var(--inset);border-top:1px solid var(--hairline);padding:20px 56px;display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+.pagebreak{page-break-before:always}
+.evidence{background:var(--inset);border:1px solid var(--hairline);border-radius:10px;padding:12px 16px;margin:10px 0 4px}
+.ev-row{display:block;margin-bottom:8px}
+.ev-row:last-child{margin-bottom:0}
+.ev-k{display:inline-block;min-width:120px;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--primary);vertical-align:top;cursor:default}
+details.ev-row summary.ev-k{cursor:pointer}
+.ev-v{display:inline-block;max-width:calc(100% - 130px);font-size:12px;color:var(--body);line-height:1.5}
+.ev-path{font-size:10.5px;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.supplier-note{font-size:11px;color:var(--muted);margin-top:6px}
+.lb-sub{font-size:11px;color:var(--muted);font-weight:400}
+.lb-table tfoot td{background:var(--inset);font-weight:700}
+.lb-table .actual{color:var(--actual)}.lb-table .bill{color:var(--bill);font-weight:700}.lb-table .trad{color:var(--trad)}
+@media print{body{background:#fff}.cover,.tier-card.sp,.tier-card.pr,.tb.sp,.sum-card.bill{-webkit-print-color-adjust:exact;print-color-adjust:exact}section{page-break-inside:avoid}details.ev-row{display:block}details.ev-row .ev-v{display:block}}
+</style></head><body><div class="page">
+
+<div class="cover">
+  <div class="eyebrow">Statement of Work · August 2026 · TIN Development · Transparent edition</div>
+  <h1>Canada Lighting Supplies — Spec Coverage &amp; Catalog Operations<br>Full-Build Ledger</h1>
+  <p class="cover-sub">Every commit, every build day, every dollar — reconstructed from git history and the committed plan/spec docs, priced three ways: our actual cost, the client rate (5×), and a traditional dev shop.</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><strong>18</strong>Commits priced</div>
+    <div class="cover-meta-item"><strong>2</strong>Coding days</div>
+    <div class="cover-meta-item"><strong>0</strong>Planning days</div>
+    <div class="cover-meta-item"><strong>Aug 2026 – Aug 2026</strong>Engagement span</div>
+  </div>
+</div>
+
+<div class="content">
+<section>
+  <div class="section-label">Headline</div>
+  <h2>Three ways to read the cost</h2>
+  <div class="summary-grid">
+    <div class="sum-card"><div class="sum-label">Actual cost (partner price)</div>
+      <div class="sum-val" style="color:var(--actual)">$3,528</div>
+      <div class="sum-sub">build + integration · our cost</div></div>
+    <div class="sum-card bill"><div class="sum-label">Billable (5× · client price)</div>
+      <div class="sum-val">$17,640</div>
+      <div class="sum-sub">5× on coding · planning flat · incl. integration</div></div>
+    <div class="sum-card"><div class="sum-label">Traditional dev shop</div>
+      <div class="sum-val" style="color:var(--trad)">$35,842</div>
+      <div class="sum-sub">266 human hours @ $135/hr</div></div>
+  </div>
+  <div class="note"><p><strong>Tunable plan:</strong> man-hours/day = commits × 1.6 × tier-weight, capped 1–38h (avg 18.6h) · human team ≤5h/day (flat, rates below) · billable = 5× actual on coding only · traditional = 5× our man-hours @ $135/hr.</p></div>
+  <h3 style="margin-top:26px">Labour cost by category</h3>
+  <p>Core AI programming is separated from the human project team so each line is costed on its own basis — coding at tiered model rates, the team (senior + junior programmer, database expert, design expert, QA) flat at human rates.</p>
+  
+  <table class="grid-table lb-table"><thead><tr><th>Labour category</th><th class="r">Hours</th><th class="r">Actual</th><th class="r">Billable</th><th class="r">Traditional</th></tr></thead>
+  <tbody><tr><td><strong>Core AI programming</strong><br><span class="lb-sub">2 coding days · tiered model rates</span></td><td class="r">37h</td><td class="r actual">$2,728</td><td class="r bill">$13,640</td><td class="r trad">$25,042</td></tr><tr><td><strong>Human project team</strong><br><span class="lb-sub">0 non-coding days · 10 roles, flat</span></td><td class="r">0h</td><td class="r actual">$0</td><td class="r bill">$0</td><td class="r trad">$0</td></tr><tr><td><strong>Third-party integration</strong><br><span class="lb-sub">1 providers · API/SDK wiring</span></td><td class="r">16h</td><td class="r actual">$800</td><td class="r bill">$4,000</td><td class="r trad">$10,800</td></tr></tbody>
+  <tfoot><tr><td><strong>Total labour</strong></td>
+  <td class="r"><strong>53h</strong></td>
+  <td class="r actual"><strong>$3,528</strong></td>
+  <td class="r bill"><strong>$17,640</strong></td>
+  <td class="r trad"><strong>$35,842</strong></td></tr></tfoot></table>
+</section>
+
+<hr class="div"/>
+<section>
+  <div class="section-label">Legend</div>
+  <h2>Model tiers</h2>
+  <div class="tier-grid">
+    <div class="tier-card sp"><div class="tier-name">Super Premium</div><div class="tier-tag">Top models · high effort</div><div class="tier-model">Claude Opus 4.8 · GPT-5 (high reasoning)</div><div class="tier-rates"><div class="tier-rate"><div class="rl">Actual</div><div class="rv">$80/hr</div></div><div class="tier-rate"><div class="rl">Billable 5×</div><div class="rv">$400/hr</div></div></div><div class="tier-use">Cryptographic signing, novel architecture, multi-agent, refactors.</div></div>
+    <div class="tier-card pr"><div class="tier-name">Premium</div><div class="tier-tag">Flagship · standard effort</div><div class="tier-model">Claude Sonnet 4.5 · Gemini 2.5 Pro</div><div class="tier-rates"><div class="tier-rate"><div class="rl">Actual</div><div class="rv">$50/hr</div></div><div class="tier-rate"><div class="rl">Billable 5×</div><div class="rv">$250/hr</div></div></div><div class="tier-use">Standard features, APIs, integrations, bug fixes.</div></div>
+    <div class="tier-card st"><div class="tier-name">Standard</div><div class="tier-tag">Fast · low effort</div><div class="tier-model">Claude Haiku 4.5 · GPT-5 mini</div><div class="tier-rates"><div class="tier-rate"><div class="rl">Actual</div><div class="rv">$25/hr</div></div><div class="tier-rate"><div class="rl">Billable 5×</div><div class="rv">$125/hr</div></div></div><div class="tier-use">Templated screens, CRUD, config, scaffolding, docs.</div></div>
+  </div>
+  <h3>Human project team (non-coding days, flat rate)</h3>
+  <table class="grid-table"><thead><tr><th>Role</th><th>Rate</th><th class="r">Days</th><th class="r">Hours</th><th class="r">Cost</th><th>Responsibility</th></tr></thead><tbody><tr><td><strong>Senior Programmer</strong></td><td>$150/hr</td><td class="r">0</td><td class="r">0h</td><td class="r">$0</td><td class="lb-sub">Architecture, code review, hard problems, sequencing</td></tr><tr><td><strong>Database Expert</strong></td><td>$140/hr</td><td class="r">0</td><td class="r">0h</td><td class="r">$0</td><td class="lb-sub">Schema, migrations, RLS, query performance</td></tr><tr><td><strong>Design Expert</strong></td><td>$135/hr</td><td class="r">0</td><td class="r">0h</td><td class="r">$0</td><td class="lb-sub">UX flows, screen design, design system</td></tr><tr><td><strong>QA Engineer</strong></td><td>$95/hr</td><td class="r">0</td><td class="r">0h</td><td class="r">$0</td><td class="lb-sub">Test planning, TDD support, regression, sign-off</td></tr><tr><td><strong>Junior Programmer</strong></td><td>$75/hr</td><td class="r">0</td><td class="r">0h</td><td class="r">$0</td><td class="lb-sub">Templated screens, CRUD, wiring, fixes</td></tr><tr><td><strong>Project Manager</strong></td><td>$110/hr</td><td class="r">0</td><td class="r">0h</td><td class="r">$0</td><td class="lb-sub">Sprint planning, client comms, timelines, risk</td></tr><tr><td><strong>Business Analyst</strong></td><td>$105/hr</td><td class="r">0</td><td class="r">0h</td><td class="r">$0</td><td class="lb-sub">Requirements, acceptance criteria, user stories</td></tr><tr><td><strong>DevOps Engineer</strong></td><td>$145/hr</td><td class="r">0</td><td class="r">0h</td><td class="r">$0</td><td class="lb-sub">CI/CD, cloud infra, monitoring, deployments</td></tr><tr><td><strong>Security Engineer</strong></td><td>$160/hr</td><td class="r">0</td><td class="r">0h</td><td class="r">$0</td><td class="lb-sub">Audits, pen testing, compliance, RLS, Stripe security</td></tr><tr><td><strong>UX Researcher</strong></td><td>$120/hr</td><td class="r">0</td><td class="r">0h</td><td class="r">$0</td><td class="lb-sub">Usability testing, user interviews, flows</td></tr></tbody>
+  <tfoot><tr><td colspan="2"><strong>Team total</strong></td><td class="r"><strong>0</strong></td><td class="r"><strong>0h</strong></td><td class="r"><strong>$0</strong></td><td></td></tr></tfoot></table>
+</section>
+
+<hr class="div"/>
+<section>
+  <div class="section-label">Engagement Scope</div>
+  <h2>Phases from commit history</h2>
+  <table class="toc"><thead><tr><th>Phase</th><th class="r">Volume</th></tr></thead><tbody><tr><td>General Platform Work</td><td class="r">15 commits</td></tr></tbody></table>
+</section>
+
+<hr class="div"/>
+<section>
+  <div class="section-label">Evidence</div>
+  <h2>Planning &amp; specification artifacts</h2>
+  <p>The build is backed by 4 committed specification documents (3,349 words total). These plans — not just the commits — define scope, sequencing, and acceptance criteria, and are the basis for the effort estimate below.</p>
+  <table class="toc"><thead><tr><th>Document</th><th class="r">Depth</th></tr></thead><tbody><tr><td>README.md</td><td class="r">1,374 words</td></tr><tr><td>docs/source-material-system.md</td><td class="r">1,223 words</td></tr><tr><td>docs/droid-pipeline-runbook.md</td><td class="r">594 words</td></tr><tr><td>AGENTS.md</td><td class="r">158 words</td></tr></tbody></table>
+</section>
+
+<hr class="div"/>
+<section>
+  <div class="section-label">Integrations</div>
+  <h2>Third-party API &amp; SDK integration</h2>
+  <p>Each named provider below is a real API/SDK integrated into the platform. Integration effort is derived from provider-tagged commits (auth, webhooks, checkout, tokens, error handling and provider testing), floored per provider, and priced at the Premium rate.</p>
+  <table class="day-table"><thead><tr><th>Provider</th><th class="r">Commits</th><th class="r">Integ. hrs</th><th class="r">Actual</th><th class="r">Billable 5×</th><th class="r">Traditional</th></tr></thead>
+  <tbody><tr><td>Telnyx</td><td class="r">1</td><td class="r">16h</td><td class="r actual">$800</td><td class="r bill">$4,000</td><td class="r trad">$10,800</td></tr></tbody>
+  <tfoot><tr><td><strong>Integration subtotal</strong></td><td class="r"><strong>1</strong></td>
+  <td class="r"><strong>16h</strong></td>
+  <td class="r actual"><strong>$800</strong></td>
+  <td class="r bill"><strong>$4,000</strong></td>
+  <td class="r trad"><strong>$10,800</strong></td></tr></tfoot></table>
+  <p class="supplier-note">Edition: <strong>Transparent</strong>. Integration totals are additive to the build ledger above (API/SDK wiring layered on feature commits).</p>
+</section>
+
+<hr class="div"/>
+<section>
+  <div class="section-label">Methodology</div>
+  <h2>How man-hours and the traditional multiple are derived</h2>
+  <p class="lead">There is no honest single "AI makes you N× faster" number. The evidence is mixed and measurement diverges sharply from perception, so this ledger does <em>not</em> assume a fast single developer. It models compression from <strong>parallelism and verification discipline</strong>, then benchmarks the same delivered scope against a traditional team.</p>
+  <table class="grid-table"><thead><tr><th>Finding</th><th>Source</th><th>Implication here</th></tr></thead><tbody>
+    <tr><td>Experienced devs on familiar codebases were <strong>19% slower</strong> with AI, yet believed they were ~20% faster. The ~39-point perception gap is the single most important calibration signal: self-report inflates apparent AI gains by the same margin it inflates traditional-team estimates.</td><td>METR RCT, 16 devs / 246 real tasks</td><td>Common industry intuition places a traditional team at ~4× AI speed. Applying the METR perception correction (÷0.81 for actual vs perceived) raises that to <strong>~5×</strong> — the multiplier used here.</td></tr>
+    <tr><td>Copilot users finished a task in <strong>21 min vs 2h41m</strong> (55% faster) on greenfield/boilerplate.</td><td>GitHub controlled study</td><td>Gains are real but concentrated in low-complexity work — our Standard tier.</td></tr>
+    <tr><td>Measured savings cluster at <strong>~3.6 hrs/week</strong>; self-reported savings run far higher (JetBrains 2025).</td><td>Industry surveys</td><td>Confirms modest, task-dependent single-threaded gains.</td></tr>
+    <tr><td>Juniors/mids saw <strong>74–83% less</strong> coding time on repetitive work; complex tasks flat or negative.</td><td>Public-sector pilot</td><td>Justifies tier weighting: dense/novel work packs more man-hours per commit.</td></tr>
+    <tr><td><strong>Verification overhead</strong> (reviewing, correcting, cleaning AI output) repeatedly erodes or erases apparent gains.</td><td>Recurring across studies</td><td>Counted as real time; TDD is treated as billable engineering, not free.</td></tr>
+  </tbody></table>
+  <div class="callout"><p><strong>The formula.</strong> Per coding day: <code>man-hours = clamp(commits × 1.6 × tier-weight, 1, 38)</code>. Days are not fixed 8h — parallel agents push peak days toward 38 man-hours (wall-clock ≤18h), while a light TDD day floors near 1h (~$25). Actual = man-hours × tier rate. <strong>Traditional = man-hours × 5 × $135/hr</strong>: a conventional team, without concurrent agents and absorbing the verification overhead above, reproduces the same tested scope at roughly 5× the labor.</p></div>
+</section>
+</div>
+
+<div class="content pagebreak" style="padding-top:8px">
+<section>
+  <div class="section-label">The Ledger</div>
+  <h2>Phase-by-phase build record</h2>
+  <p class="lead">Every coding day is a real commit set; every planning day fills a gap. Priced Actual · Billable · Traditional.</p>
+  <div class="phase-h"><h3>General Platform Work</h3><span class="pmeta">2 coding · 0 planning days</span></div><table class="day-table"><thead><tr><th>Date</th><th>Work product (from commits)</th><th>Model · Tier</th><th class="r">Hrs</th><th class="r">Actual</th><th class="r">Billable 5×</th><th class="r">Traditional</th></tr></thead><tbody><tr><td>08-11</td><td><ul><li><code>feat(specs)</code> populate PDP specs via metafields + resilient mapper + Reno extraction</li><li><code>feat(specs)</code> harden AI spec extraction, metafield type resilience, and Reno concurrency</li><li><code>feat(specs)</code> fix PDP spec rendering for optional fields and wire Shopify metafield read path</li><li><code>fix(specs)</code> guard metafield transform against null entries from Storefront API</li><li><code>docs(spec)</code> add magnetic track light ingestion design spec</li></ul></td><td><span class="tb pr">Premium</span><br><span class="model-chip">Claude Sonnet 4.5</span></td><td class="r">8.0h</td><td class="r actual">$400</td><td class="r bill">$2,000</td><td class="r trad">$5,400 <small style="color:#9ca3af">40.0h</small></td></tr><tr><td>08-12</td><td><ul><li><code>feat(eiko)</code> migrate product documents S3 to B2 with searchable metadata</li><li><code>feat(canolight)</code> add SKU normalization for magnetic track products</li><li><code>feat(specs)</code> AI extraction for Eurofase/Votatec + metafield push pipeline + coverage audit</li><li><code>fix(canolight)</code> remove redundant operations in SKU normalization</li><li><code>feat(canolight)</code> add magnetic track PDF parser</li><li><code>feat(canolight)</code> add magnetic track category derivation</li><li><code>feat(canolight)</code> add --ingest-magnetic-track mode</li><li><code>fix(canolight)</code> export MagneticTrackProduct interface for reusability</li><li><code>fix(canolight)</code> export MagneticTrackProduct interface and fix originalSku to store raw SKU</li><li><code>fix(canolight)</code> improve CRI extraction to avoid matching price numbers</li><li><code>docs(canolight)</code> add magnetic track ingestion plan</li><li><code>docs(quotes)</code> add canolight spec-filler quote (2026-08-12)</li><li><code>feat(pdp)</code> horizontal thumbnail strip with on-image prev/next nav</li></ul></td><td><span class="tb sp">Super Premium</span><br><span class="model-chip">Claude Opus 4.8</span></td><td class="r">29.1h</td><td class="r actual">$2,328</td><td class="r bill">$11,640</td><td class="r trad">$19,642 <small style="color:#9ca3af">145.5h</small></td></tr></tbody><tfoot><tr><td colspan="3"><strong>Subtotal</strong></td><td class="r"><strong>37.1h</strong></td><td class="r actual"><strong>$2,728</strong></td><td class="r bill"><strong>$13,640</strong></td><td class="r trad"><strong>$25,042</strong></td></tr></tfoot></table>
+</section>
+</div>
+
+<div class="footer"><span>Canada Lighting Supplies — Spec Coverage &amp; Catalog Operations — Statement of Work · August 2026</span><span>Confidential · Reconstructed from git history</span></div>
+</div></body></html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Canolight Spec Coverage — Tier 1+2 Loader · Project Quote</title>
+<style>
+:root{--p:#1e3a5f;--pl:color-mix(in srgb,var(--p) 15%,white);--ink:#1a1523;--body:#4b4558;--muted:#9ca3af;--hr:#e5e7eb;--bg:#fff;--inset:#f9fafb}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--ink);background:#f4f4f7;line-height:1.6;font-size:14px}
+.page{max-width:960px;margin:0 auto;background:#fff}
+.cover{background:linear-gradient(135deg,#0a1a2e 0%,#1a3a5f 50%,var(--p) 100%);color:#fff;padding:64px 56px 56px;position:relative;overflow:hidden}
+.cover::after{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;background:rgba(255,255,255,.04);border-radius:50%}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:16px}
+.cover h1{font-size:40px;font-weight:800;line-height:1.15;margin-bottom:10px;letter-spacing:-.02em}
+.cover-sub{font-size:16px;color:rgba(255,255,255,.7);max-width:540px;margin-bottom:36px;line-height:1.7}
+.cover-meta{display:flex;gap:28px;flex-wrap:wrap}
+.cover-meta-item{font-size:12px;color:rgba(255,255,255,.55)}
+.cover-meta-item strong{display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:2px}
+.content{padding:48px 56px}
+section{margin-bottom:44px}
+.label{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--p);margin-bottom:8px}
+h2{font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--ink);margin-bottom:10px}
+p{color:var(--body);margin-bottom:10px;line-height:1.7}
+.callout{background:var(--pl);border-left:3px solid var(--p);border-radius:0 10px 10px 0;padding:14px 18px;margin:20px 0}
+.callout p{color:var(--ink);margin:0;font-weight:500}
+hr.div{border:none;border-top:1px solid var(--hr);margin:36px 0}
+/* Tiers */
+.tier-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:20px 0}
+.tc{border-radius:14px;padding:20px;text-align:center}
+.tc.opus{background:linear-gradient(135deg,#1a0533,#3b0764);color:#fff}
+.tc.sonnet{background:linear-gradient(135deg,#0a1a2e,var(--p));color:#fff}
+.tc.haiku{background:var(--inset);border:1px solid var(--hr)}
+.tc .tn{font-size:16px;font-weight:800;margin-bottom:4px}
+.tc .tm{font-size:11px;opacity:.65;margin-bottom:12px}
+.tc .tp{font-size:32px;font-weight:900;letter-spacing:-.03em;line-height:1}
+.tc .tper{font-size:11px;opacity:.65;margin-top:3px}
+.tc .tmul{font-size:11px;margin-top:8px;opacity:.75}
+.tc .tuse{font-size:11px;margin-top:10px;opacity:.7;line-height:1.5}
+.haiku .tn,.haiku .tp,.haiku .tmul{color:var(--ink)}
+.haiku .tm,.haiku .tper,.haiku .tuse{color:var(--muted)}
+/* Phase table */
+.pt{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px}
+.pt thead th{background:var(--inset);padding:9px 12px;text-align:left;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--hr)}
+.pt tbody tr{border-bottom:1px solid var(--hr)}
+.pt tbody tr:hover{background:var(--inset)}
+.pt td{padding:11px 12px;vertical-align:top;color:var(--body)}
+.pt td:first-child{font-weight:600;color:var(--ink);width:28px}
+.pt tfoot td{padding:11px 12px;font-weight:700;background:var(--inset)}
+.tb{display:inline-flex;align-items:center;gap:5px;border-radius:20px;padding:2px 9px;font-size:10px;font-weight:700;border:1px solid}
+.tb.opus{background:#fef3c7;color:#92400e;border-color:#fcd34d}
+.tb.sonnet{background:var(--pl);color:var(--p);border-color:color-mix(in srgb,var(--p) 30%,white)}
+.tb.haiku{background:#f0fdf4;color:#166534;border-color:#bbf7d0}
+/* Running costs */
+.rc-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:20px 0}
+.rc-card{border:1px solid var(--hr);border-radius:14px;padding:18px;text-align:center}
+.rc-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.rc-val{font-size:28px;font-weight:800;color:var(--p);letter-spacing:-.02em}
+.rc-sub{font-size:11px;color:var(--muted);margin-top:4px}
+/* ROI */
+.roi-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:20px 0}
+.roi-card{border:1px solid var(--hr);border-radius:14px;padding:18px;text-align:center}
+.roi-num{font-size:30px;font-weight:800;color:var(--p);letter-spacing:-.02em}
+.roi-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:4px}
+.roi-sub{font-size:12px;color:var(--body);margin-top:6px}
+/* Sign-off */
+.signoff{border:2px solid var(--hr);border-radius:14px;padding:28px 32px;margin-top:36px}
+.signoff h3{font-size:17px;font-weight:700;margin-bottom:4px}
+.signoff p{color:var(--body);margin-bottom:20px}
+.sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.sig-block label{display:block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.sig-line{border-bottom:1.5px solid var(--ink);height:34px;margin-bottom:5px}
+.sig-sub{font-size:11px;color:var(--muted)}
+.footer{background:var(--inset);border-top:1px solid var(--hr);padding:18px 56px;display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+.highlight-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0}
+.hl-card{border:1px solid var(--hr);border-radius:10px;padding:12px 14px;font-size:13px;font-weight:500;color:var(--ink)}
+.hl-card::before{content:"✓ ";color:var(--p);font-weight:700}
+.insight{display:flex;align-items:flex-start;gap:10px;background:rgba(255,215,0,.08);border:1px solid rgba(255,215,0,.3);border-radius:10px;padding:12px 14px;margin:16px 0;font-size:13px;color:var(--body)}
+.insight .bulb{font-size:16px;flex-shrink:0}
+@media print{body{background:#fff}.cover,.tc.opus,.tc.sonnet{-webkit-print-color-adjust:exact;print-color-adjust:exact}section{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="cover">
+  <div class="eyebrow">Project Quote · August 12, 2026 · TIN Development</div>
+  <h1>Canolight Spec Coverage — Tier 1+2 Loader</h1>
+  <p class="cover-sub">A focused loader-script engagement that closes ~87% of the Canolight PDP-spec gap in 6 hours, using catalogue data we already extracted.</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><strong>$280</strong>Total development</div>
+    <div class="cover-meta-item"><strong>0.75 days</strong>Estimated timeline</div>
+    <div class="cover-meta-item"><strong>6 hours</strong>Total effort</div>
+    <div class="cover-meta-item"><strong>Low</strong>Project complexity</div>
+    <div class="cover-meta-item"><strong>Canada Lighting Supplies</strong>Prepared for</div>
+  </div>
+</div>
+
+<div class="content">
+
+<section>
+  <div class="label">The Project</div>
+  <h2>Canolight Spec Coverage — Tier 1+2 Loader</h2>
+  <p>1,341 active Canolight products exist in Neon. 1,138 already show structured specs on the storefront (84.9% usable). The remaining <strong>203</strong> show "Specifications available upon request" because <code>supplier_products.specs</code> is empty for them. The blocker isn't extraction, it's matching: a Gemini 2.5 Flash pass over the April 2026 general catalogue (<code>General-Catalogue-Canolight-April-2026.pdf</code>) already produced <code>catalogue-extraction.json</code> on July 6 with <strong>547 structured SKUs</strong>, and a separate August staging file <code>magnetic-track-products.json</code> holds 462 magnetic-track records. We just need a small, idempotent loader script that matches these against the un-matched 203 in Neon and writes structured specs back.</p>
+
+  <div class="insight"><span class="bulb">💡</span><span><strong>Key insight:</strong> Of the 203 unmatched Canolight products, 117 (57.6%) are exact-SKU matches against the catalogue extraction and 61 more (30.0%) are family/prefix-fuzzy matches against a known parent SKU. That's 178 products (~87%) fillable in hours, not weeks — no Gemini calls, no PDF re-parsing, no website crawl. Only 25 accessory-only SKUs (string-light kits, endcaps, signal repeaters) need a separate follow-up plan.</span></div>
+
+  <div class="highlight-grid">
+    <div class="hl-card">Closes 87% of the Canolight spec gap (178 of 203 unmatched products)</div>
+    <div class="hl-card">Idempotent — safe to re-run after each catalogue re-extraction</div>
+    <div class="hl-card">Brand PDP coverage jumps 32.4% → ≥85% usable with zero downstream changes</div>
+  </div>
+</section>
+
+<hr class="div"/>
+
+<section>
+  <div class="label">Pricing Model</div>
+  <h2>Model tiers — actual OpenRouter ratios</h2>
+  <p>Each phase is assigned the tier that matches its complexity. Rates are derived from real model output costs on OpenRouter, with Claude Sonnet 4.5 as the baseline.</p>
+  <div class="tier-grid">
+    <div class="tc opus">
+      <div class="tn">Opus</div>
+      <div class="tm">Claude Opus 4.6</div>
+      <div class="tp">$100<span style="font-size:16px;font-weight:400">/hr</span></div>
+      <div class="tper">Development rate</div>
+      <div class="tmul">1.67× baseline</div>
+      <div class="tuse">Complex AI · Multi-agent systems · Novel architecture · Deep reasoning</div>
+    </div>
+    <div class="tc sonnet">
+      <div class="tn">Sonnet</div>
+      <div class="tm">Claude Sonnet 4.5 · GPT-4o</div>
+      <div class="tp">$60<span style="font-size:16px;font-weight:400">/hr</span></div>
+      <div class="tper">Baseline</div>
+      <div class="tmul">1× baseline</div>
+      <div class="tuse">Standard features · Integrations · APIs · Backend development</div>
+    </div>
+    <div class="tc haiku">
+      <div class="tn">Haiku</div>
+      <div class="tm">Claude Haiku 4.5 · GPT-4o mini</div>
+      <div class="tp" style="color:var(--p)">$20<span style="font-size:16px;font-weight:400;color:var(--muted)">/hr</span></div>
+      <div class="tper">0.33× baseline</div>
+      <div class="tmul">Actual ratio</div>
+      <div class="tuse">Automations · Templates · CRUD · Config · Scaffolding</div>
+    </div>
+  </div>
+</section>
+
+<hr class="div"/>
+
+<section>
+  <div class="label">Implementation</div>
+  <h2>Project phases &amp; costs</h2>
+  <table class="pt">
+    <thead>
+      <tr><th>#</th><th>Phase</th><th>Tier</th><th>Days</th><th>Hours</th><th>Rate</th><th>Cost</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>
+          <div style="font-weight:600;color:#1a1523;margin-bottom:2px">Canolight Spec Loader — Tier 1+2</div>
+          <div style="font-size:12px;color:#9ca3af;line-height:1.5">Build <code>scripts/specs-from-canolight-catalogue.ts</code> — a reusable idempotent loader. Tier 1: exact-SKU upsert from <code>catalogue-extraction.json</code> (117 SKUs). Tier 2: family/prefix-fuzzy parent-SKU fill (61 SKUs) using safe inherit-then-override rules with the variant suffix noted. Safe with <code>--dry-run</code> flag for staging rollout.</div>
+          <ul style="margin:6px 0 0 14px">
+            <li style="font-size:11px;color:#4b4558;margin-bottom:2px">178 of 203 unmatched products gain structured specs</li>
+            <li style="font-size:11px;color:#4b4558;margin-bottom:2px">Idempotent — safe to re-run after each catalogue re-extraction</li>
+            <li style="font-size:11px;color:#4b4558;margin-bottom:2px">25 Tier-3 SKUs surfaced as an explicit fallback list for follow-up</li>
+          </ul>
+        </td>
+        <td><span class="tb sonnet">Sonnet</span></td>
+        <td style="white-space:nowrap">0.5d</td>
+        <td style="white-space:nowrap">4h</td>
+        <td style="white-space:nowrap;color:#9ca3af">$60/hr</td>
+        <td style="white-space:nowrap;font-weight:700">$240</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>
+          <div style="font-weight:600;color:#1a1523;margin-bottom:2px">Verification + Coverage Re-publication</div>
+          <div style="font-size:12px;color:#9ca3af;line-height:1.5">Run <code>__specs_coverage_production.ts</code> against the live Shopify PDPs. Build a per-brand coverage delta report and surface the diff to confirm Canolight jumps 32.4% → ≥85%. Tag and commit the loader + verifier; surface the Tier-3 list as a follow-up ticket.</div>
+          <ul style="margin:6px 0 0 14px">
+            <li style="font-size:11px;color:#4b4558;margin-bottom:2px">Pre/post coverage numbers captured and committed to repo</li>
+            <li style="font-size:11px;color:#4b4558;margin-bottom:2px">Re-run the canonical <code>__specs_coverage_production.ts</code> from any machine</li>
+            <li style="font-size:11px;color:#4b4558;margin-bottom:2px">Tier-3 fallback list handed off to a separate workstream</li>
+          </ul>
+        </td>
+        <td><span class="tb haiku">Haiku</span></td>
+        <td style="white-space:nowrap">0.25d</td>
+        <td style="white-space:nowrap">2h</td>
+        <td style="white-space:nowrap;color:#9ca3af">$20/hr</td>
+        <td style="white-space:nowrap;font-weight:700">$40</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3"><strong>Total</strong></td>
+        <td><strong>0.75</strong></td>
+        <td><strong>6h</strong></td>
+        <td>—</td>
+        <td><strong style="color:var(--p);font-size:15px">$280</strong></td>
+      </tr>
+    </tfoot>
+  </table>
+</section>
+
+<hr class="div"/>
+
+<section>
+  <div class="label">Running Costs</div>
+  <h2>Ongoing operating costs</h2>
+  <p>The loader itself is pure data-mapping and has no LLM operating cost. The optional recurring cost is a quarterly re-extraction of the catalogue PDF using Gemini 2.5 Flash to pick up new SKUs added by Canolight.</p>
+  <div class="rc-grid">
+    <div class="rc-card">
+      <div class="rc-label">RE-RUN ON DEMAND</div>
+      <div class="rc-val">$0<span style="font-size:14px;font-weight:600;color:var(--muted)">/mo</span></div>
+      <div class="rc-sub">loader only — no LLM cost</div>
+    </div>
+    <div class="rc-card">
+      <div class="rc-label">QUARTERLY RE-EXTRACT</div>
+      <div class="rc-val">$30<span style="font-size:14px;font-weight:600;color:var(--muted)">/mo</span></div>
+      <div class="rc-sub">$90/quarter · Gemini 2.5 Flash</div>
+    </div>
+    <div class="rc-card">
+      <div class="rc-label">MONTHLY RE-EXTRACT</div>
+      <div class="rc-val">$100<span style="font-size:14px;font-weight:600;color:var(--muted)">/mo</span></div>
+      <div class="rc-sub">billed by usage · includes AI audit</div>
+    </div>
+  </div>
+</section>
+
+<hr class="div"/>
+
+<section>
+  <div class="label">Impact</div>
+  <h2>Per-brand coverage delta</h2>
+  <div class="roi-grid">
+    <div class="roi-card">
+      <div class="roi-num">203 → 25</div>
+      <div class="roi-lbl">Unmatched SKUs</div>
+      <div class="roi-sub">178 PDPs switch from "available upon request" to full specs</div>
+    </div>
+    <div class="roi-card">
+      <div class="roi-num">32.4% → ≥85%</div>
+      <div class="roi-lbl">Brand usable-coverage</div>
+      <div class="roi-sub">matches eiko / eurofase effective range</div>
+    </div>
+    <div class="roi-card">
+      <div class="roi-num">6 hrs</div>
+      <div class="roi-lbl">Total engineering time</div>
+      <div class="roi-sub">vs. original 1–5 day regex-prose mapper approach</div>
+    </div>
+  </div>
+</section>
+
+<hr class="div"/>
+
+<div class="signoff">
+  <h3>Project Approval &amp; Sign-off</h3>
+  <p>By signing below both parties agree to the scope, timeline, and costs outlined in this quote. A 50% deposit is required to commence work. Balance due on completion.</p>
+  <div class="sig-grid">
+    <div>
+      <div class="sig-block"><label>Authorised — Canada Lighting Supplies</label><div class="sig-line"></div><div class="sig-sub">Name &amp; title</div></div>
+      <div class="sig-block" style="margin-top:18px"><label>Date</label><div class="sig-line"></div></div>
+    </div>
+    <div>
+      <div class="sig-block"><label>Authorised — TIN Development</label><div class="sig-line"></div><div class="sig-sub">Name &amp; title</div></div>
+      <div class="sig-block" style="margin-top:18px">
+        <label>Total agreed value</label>
+        <div class="sig-line" style="border-bottom:2px solid var(--p)"></div>
+        <div class="sig-sub" style="color:var(--p);font-weight:600">$280 development + ongoing operating costs per schedule above</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  <span>Canolight Spec Coverage — Tier 1+2 Loader · August 12, 2026 · TIN Development</span>
+  <span>Confidential · Powered by frontier AI models</span>
+</div>
+
+</div>
+</body>
+</html>
